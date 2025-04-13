@@ -1,7 +1,7 @@
-#FROM gradle:jdk17 AS builder
+FROM gradle:jdk17 AS builder
 # закэшировал зависимости для тестов и билда, можно делать pre-pull раз в день на ci агент для быстрых сборок из-за локального резолва
 # описал процесс формирования в файле Dockerfile-cache-ci
-FROM  frkntony/gradle-cached-ci-builder:jdk17 as builder
+#FROM  frkntony/gradle-cached-ci-builder:jdk17 as builder
 
 WORKDIR /app
 COPY . .
