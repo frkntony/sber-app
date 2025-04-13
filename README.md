@@ -22,7 +22,7 @@ docker run -p 1337:8080 frkntony/sber-app:kotlin-spring-boot
 Если Docker уже установлен, можно просто спулить и запустить:
 
 ```bash
-docker run -p 8080:8080 frkntony/sber-app:kotlin-spring-boot
+docker run -d -p 1337:8080 frkntony/sber-app:kotlin-spring-boot
 ```
 
 локальное API 
