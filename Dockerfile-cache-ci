@@ -1,0 +1,25 @@
+# Смысл этого образа, чтобы создать более эффективный билдер, который можно будет каждый день пулить на агент 
+# и это должно сократить время сборок, нежели каждый раз накачивать в пустой грейдл контейнер зависимостями для тестов и билда
+# мы все любим быстрые сборки d==(^_^)
+FROM gradle:jdk17 AS builder
+
+WORKDIR /app
+COPY . .
+
+# почему не использовать, к примеру, RUN gradle dependencies --no-daemon
+# потому что скачивает не все зависимости
+
+# скачиваю все для тестов
+RUN gradle test --no-daemon
+
+# скачиваю все для билда 
+RUN gradle build --no-daemon
+
+# очистка исходного кода и артефактов
+RUN rm -rf /app/*
+
+# дальше делаю 
+# docker build -f Dockerfile-cache-ci -t frkntony/gradle-cached-ci-builder:jdk17 .
+# docker push frkntony/gradle-cached-ci-builder:jdk17
+# далее образ frkntony/gradle-cached-ci-builder:jdk17 можно использовать как основной для билда
+

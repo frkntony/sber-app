@@ -1,0 +1,32 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# добавил гитигнор для IDEs
+.idea/
+*.iml
+.vscode/
+
+# для мака
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+]
+*~ 
+*.swp
+*.swo
+*.log
+*.class
+*.jar
+*.war
+*.ear
+*.tld
+.gradle/
+build/
+*.bak
+*.swp
+*.swo
+Thumbs.db
